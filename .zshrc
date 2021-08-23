@@ -118,8 +118,9 @@ zstyle ':vcs_info:*'     formats "%F{magenta}%c%u[%b]%f"
 zstyle ':vcs_info:*'     actionformats '[%b|%a]'
 precmd () { vcs_info }
 
-PROMPT='%F{yellow}%n(%m):%f %F{cyan}%~%f'
+PROMPT='%F{yellow}%n(%m):%f %F{cyan}%1~%f'
 PROMPT=$PROMPT'%B${vcs_info_msg_0_}%b '
+RPROMPT='%F{cyan}%/%f%B${vcs_info_msg_0_}%b'
 
 ################################################## History
 export HISTFILE=~/.zsh_history
