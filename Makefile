@@ -1,10 +1,24 @@
-.PHONY: echo help
+.PHONY: init-react help
 
-echo: ## sample
-	@echo sample
+init-react: ## init react app
+ifdef name
+	$(call init_react, ${name})
+else
+	$(call init_react, "default-react-app")
+endif
 
 help: ## show help
 	$(call show_help)
+
+define init_react
+	@cd .. && \
+		npm init react-app $(1) && \
+		cd $(1) && \
+		npm install -g eslint && \
+		npm install redux && \
+		npm install react-redux && \
+		npx -p @storybook/cli sb init
+endef
 
 define show_help
     @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST)  \
