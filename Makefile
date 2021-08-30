@@ -1,6 +1,9 @@
 .PHONY: init-react help
 
-init-react: ## init react app
+npm-g-install: ## npm -g install
+	@npm install -g eslint
+
+init-react: ## init react app with redux, storybook (args:name="product name")
 ifdef name
 	$(call init_react, ${name})
 else
@@ -14,7 +17,6 @@ define init_react
 	@cd .. && \
 		npm init react-app $(1) && \
 		cd $(1) && \
-		npm install -g eslint && \
 		npm install redux && \
 		npm install react-redux && \
 		npx -p @storybook/cli sb init
