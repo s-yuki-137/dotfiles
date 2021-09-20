@@ -1,7 +1,11 @@
-.PHONY: init-react help
+.PHONY: npm-g-install brew-init init-react help
 
 npm-g-install: ## npm -g install
 	@npm install -g eslint
+
+brew-init: ## init brew
+	@xcode-select --install && \
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 init-react: ## init react app with redux, storybook (args:name="product name")
 ifdef name
