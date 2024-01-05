@@ -25,7 +25,6 @@ alias vi='vim'
 alias rm='rm -i'
 alias curl='curl -s'
 alias grep='grep --color=auto'
-alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
 alias u='cd ..'
 alias :q="exit"
 
